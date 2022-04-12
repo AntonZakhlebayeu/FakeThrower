@@ -1,7 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Fake Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+﻿<div class="text-center">  
+    <div class = "display-4 text-white">
+        <h1 class="lng-WelcomeText"></h1>  
+    </div>
 </div>
+<br/>                         
+<h4 class = "lng-SelectRegion">Select language and region:</h4>
+<select class="form-select text-black-50" aria-label="Default select example">
+    <option value="en" selected>USA/English</option>
+    <option value="lt">Lietuva/Lietuvių</option>
+    <option value="ru">РФ/Русский</option>     
+    <option value="by">Беларусь/Беларускі</option>
+    <option value="ua">Україна/Український</option>
+</select>     
+
+<script src="js/lang.js"></script>

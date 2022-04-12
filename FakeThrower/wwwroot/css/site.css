@@ -13,6 +13,20 @@ html {
   min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+header {
+  font-family: "Comic Sans MS";
+  background-color: #191c1f;
 }
+
+body {
+  font-family: "Impact";
+  margin-bottom: 60px;
+  background-image: url("https://i.ibb.co/rxF2VNh/background.jpg");
+  background-size: cover;
+}
+
+footer {
+  font-family: "Comic Sans MS";
+  background-color: #191c1f;
+}
+

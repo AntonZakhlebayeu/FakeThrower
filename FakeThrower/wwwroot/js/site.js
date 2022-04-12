@@ -1,4 +1,31 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const select = document.querySelector('select');
+const allLang = ['en', 'lt', 'ru', 'by', 'ua'];
 
-// Write your JavaScript code.
+select.addEventListener('change',changeURLLanguage);
+
+function changeURLLanguage() {
+    let lang = select.value; 
+    location.href = window.location.pathname + '#' + lang;
+    location.reload();
+}
+
+function changeLanguage() {
+    let hash = window.location.hash;
+    hash = hash.substring(1);
+    console.log(hash);
+    if (!allLang.includes(hash)) {
+        location.href =  window.location.pathname + '#en';
+        location.reload();
+    }
+    select.value = hash;
+    document.querySelector('title').innerHTML = langArr['Title'][hash];
+    for (let key in langArr) {
+        let elem = document.querySelector(".lng-" + key);
+        if (elem) {
+            elem.innerHTML = langArr[key][hash];
+        }
+    }
+}
+
+changeLanguage();
+
