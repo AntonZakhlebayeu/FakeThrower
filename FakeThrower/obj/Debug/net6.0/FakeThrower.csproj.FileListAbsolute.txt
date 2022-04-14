@@ -24,3 +24,5 @@
 /Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/obj/Debug/net6.0/FakeThrower.pdb
 /Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/obj/Debug/net6.0/FakeThrower.genruntimeconfig.cache
 /Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/obj/Debug/net6.0/ref/FakeThrower.dll
+/Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/bin/Debug/net6.0/Bogus.dll
+/Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/obj/Debug/net6.0/FakeThrower.csproj.CopyComplete

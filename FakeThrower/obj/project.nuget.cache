@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "zAxPqmfQpdc3H3IKiPnaYgymDrTysou206RHvhcR1GNBZ6Rb6UUg+KKU9ZefNQgoigCFC3mngA1nsnuW64vbzw==",
+  "dgSpecHash": "PI7kYIQwQMhOg2oErdn4HHmMiS+XJRhIfa6Y/UsAswTiyVa43F6ZUzaTLx0Cb6gLtKOZVUGPfBUjjabhSFaOzQ==",
   "success": true,
   "projectFilePath": "/Users/antonzahlebaev/ITransitionInternship/FakeThrower/FakeThrower/FakeThrower.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/antonzahlebaev/.nuget/packages/bogus/34.0.2/bogus.34.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

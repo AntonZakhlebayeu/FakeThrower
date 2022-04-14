@@ -1,16 +1,27 @@
-﻿<div class="text-center">  
+﻿@model IEnumerable<User>
+
+<div class="text-center">  
     <div class = "display-4 text-white">
         <h1 class="lng-WelcomeText"></h1>  
     </div>
 </div>
 <br/>                         
 <h4 class = "lng-SelectRegion text-white">Select language and region:</h4>
-<select class="form-select text-black-50" aria-label="Default select example">
+<select class="form-select text-black-50" id="changeLanguage" aria-label="Default select example">
     <option value="en" selected>USA/English</option>
     <option value="lt">Lietuva/Lietuvių</option>
-    <option value="ru">РФ/Русский</option>     
+    <option value="ru">РФ/Русский</option>
     <option value="by">Беларусь/Беларускі</option>
     <option value="ua">Україна/Український</option>
-</select>     
+</select>
+
+@foreach (var user in Model)
+{
+    <br/>
+    <h4>@user.FirstName</h4>
+    <h4>@user.LastName</h4>
+    <h4>@user.PhoneNumber</h4>  
+    <br/>
+}
 
 <script src="js/lang.js"></script>
