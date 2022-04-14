@@ -1,4 +1,4 @@
-﻿@model IEnumerable<User>
+﻿@model IEnumerable<User> 
 
 <div class="text-center">  
     <div class = "display-4 text-white">
@@ -16,7 +16,7 @@
  
 <form method="post">
     <div class="input-group mb-3">
-        <input type="number" id = "seed" value=@Model.ElementAt(0).Seed class="form-control" placeholder="Seed" aria-label="Seed" aria-describedby="basic-addon2" name="seed">
+        <input type="number" id = "seed" value=@Model.ElementAt(0).Seed class="form-control" placeholder="Place 0 to random seed" aria-label="Seed" aria-describedby="basic-addon2" name="seed">
         <button class="input-group-text btn-primary" id="basic-addon2" type="submit" asp-controller="Home" asp-action="Index" onclick="changeURLLanguage()">Set seed</button>
     </div>    
 </form>
@@ -36,17 +36,16 @@
     </tr>
     </thead>
     <tbody>
-
-    @foreach (var user in Model)
-    {
-        <tr>
-            <th scope="row">@user.Number</th>
-            <td>@user.Id</td>
-            <td>@user.FirstName @user.LastName</td>
-            <td>@user.Adress</td>
-            <td>@user.PhoneNumber</td>
-        </tr>
-    }
+        @foreach (var user in Model)
+        {
+            <tr>
+                <th scope="row">@user.Number</th>
+                <td>@user.Id</td>
+                <td>@user.FirstName @user.LastName</td>
+                <td>@user.Adress</td>
+                <td>@user.PhoneNumber</td>
+            </tr>
+        }
     </tbody>
 </table>
 

@@ -2,7 +2,6 @@
 using Bogus;
 using Microsoft.AspNetCore.Mvc;
 using FakeThrower.Models;
-using System.Net;
 
 namespace FakeThrower.Controllers;
 
@@ -45,6 +44,10 @@ public class HomeController : Controller
         var number = 0;
 
         var rnd = new Random();
+
+        if (seed == 0)
+            seed = rnd.Next(86400);
+
         Randomizer.Seed = new Random(rnd.Next(seed));
         var fakeUser = new Faker<User>(lang)
             .RuleFor(x => x.Seed, x => seed)
