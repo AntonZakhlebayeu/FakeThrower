@@ -15,17 +15,45 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public async Task<IActionResult> Index()
+    [HttpGet]
+    [Route("/Home/Index/{lang}")]
+    public async Task<ActionResult> Index(string lang = "en")
     {
-        var fakeUser = new Faker<User>("en")
-            .RuleFor(x => x.Id, x => x.IndexFaker)
+        var number = 0;
+
+        var rnd = new Random();
+        var seed = rnd.Next(86400);
+        Randomizer.Seed = new Random(rnd.Next(seed));
+        var fakeUser = new Faker<User>(lang)
+            .RuleFor(x => x.Seed, x => seed)
+            .RuleFor(x => x.Number, x => ++number)
+            .RuleFor(x => x.Id, x => x.Random.Int(0, 1000))
             .RuleFor(x => x.FirstName, x => x.Person.FirstName)
             .RuleFor(x => x.LastName, x => x.Person.LastName)
-            .RuleFor(x => x.PhoneNumber, x => x.Phone.PhoneNumberFormat())
-            .FinishWith((f, u) =>
-            {
-                Console.WriteLine("Fake user created!");
-            });
+            .RuleFor(x => x.Adress, x=> x.Address.Country() + " " + x.Address.City() + " " + x.Address.StreetName())
+            .RuleFor(x => x.PhoneNumber, x => x.Phone.PhoneNumberFormat());
+
+        var user = fakeUser.Generate(20);
+
+        return await Task.Run(() => View(user));
+    }
+
+    [HttpPost]
+    [Route("/Home/Index/{lang}")]
+    public async Task<ActionResult> Index(int seed, string lang = "en")
+    {
+        var number = 0;
+
+        var rnd = new Random();
+        Randomizer.Seed = new Random(rnd.Next(seed));
+        var fakeUser = new Faker<User>(lang)
+            .RuleFor(x => x.Seed, x => seed)
+            .RuleFor(x => x.Number, x => ++number)
+            .RuleFor(x => x.Id, x => x.Random.Int(0, 1000))
+            .RuleFor(x => x.FirstName, x => x.Person.FirstName)
+            .RuleFor(x => x.LastName, x => x.Person.LastName)
+            .RuleFor(x => x.Adress, x=> x.Address.Country() + " " + x.Address.City() + " " + x.Address.StreetName())
+            .RuleFor(x => x.PhoneNumber, x => x.Phone.PhoneNumberFormat());
 
         var user = fakeUser.Generate(20);
 

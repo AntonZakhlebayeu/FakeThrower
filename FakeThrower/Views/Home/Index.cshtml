@@ -9,19 +9,45 @@
 <h4 class = "lng-SelectRegion text-white">Select language and region:</h4>
 <select class="form-select text-black-50" id="changeLanguage" aria-label="Default select example">
     <option value="en" selected>USA/English</option>
-    <option value="lt">Lietuva/Lietuvių</option>
     <option value="ru">РФ/Русский</option>
-    <option value="by">Беларусь/Беларускі</option>
-    <option value="ua">Україна/Український</option>
-</select>
+    <option value="uk">Україна/Український</option>
+</select>    
+<br/>
+ 
+<form method="post">
+    <div class="input-group mb-3">
+        <input type="number" id = "seed" value=@Model.ElementAt(0).Seed class="form-control" placeholder="Seed" aria-label="Seed" aria-describedby="basic-addon2" name="seed">
+        <button class="input-group-text btn-primary" id="basic-addon2" type="submit" asp-controller="Home" asp-action="Index" onclick="changeURLLanguage()">Set seed</button>
+    </div>    
+</form>
 
-@foreach (var user in Model)
-{
-    <br/>
-    <h4>@user.FirstName</h4>
-    <h4>@user.LastName</h4>
-    <h4>@user.PhoneNumber</h4>  
-    <br/>
-}
+<br/>
+<h5><i>Seed: @Model.ElementAt(0).Seed</i></h5>
+<table class="table table-hover table-responsive">
+    <thead>
+    <tr>
+    </tr>
+    <tr>
+        <th class = "lng-Number">Number</th>
+        <th class="col-md-3 col-xs-3">Id</th>
+        <th class="col-md-3 col-xs-3 lng-FIO">Last name and First name</th>
+        <th class="col-md-3 col-xs-3 lng-Adress">Adress</th>
+        <th class="col-md-3 col-xs-3 lng-PhoneNumber">Phone Number</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var user in Model)
+    {
+        <tr>
+            <th scope="row">@user.Number</th>
+            <td>@user.Id</td>
+            <td>@user.FirstName @user.LastName</td>
+            <td>@user.Adress</td>
+            <td>@user.PhoneNumber</td>
+        </tr>
+    }
+    </tbody>
+</table>
 
 <script src="js/lang.js"></script>
